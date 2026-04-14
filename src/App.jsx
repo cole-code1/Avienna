@@ -1,27 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, ChevronRight, Shield, Clock, Award, X, Menu, ArrowRight } from 'lucide-react';
-import { FaWhatsapp, FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaWhatsapp, FaFacebookF, FaInstagram, FaTwitter, FaTiktok } from 'react-icons/fa';
 
 
 // Image paths from your cloudinary uploads
 const IMAGES = {
   logo:'https://res.cloudinary.com/daqtttdb0/image/upload/v1776005159/logoavienna_c6zog0.jpg',
-  redTile: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977110/avienna4_yxx2r3.jpg',
-  grayTile: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977112/avienna11_azulhk.jpg',
-  brownTile: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977114/avienna9_jcrysu.jpg',
-  blackWave: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977113/avienna5_s3bxdt.jpg',
-  grayWave: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977109/avienna17_dodik8.jpg',
-  redWave: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977111/avienna16_rfhqcw.jpg',
-  redStone: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977110/avienna4_yxx2r3.jpg',
-  grayStone2: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977112/avienna11_azulhk.jpg',
-  darkGrayStone: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977113/avienna8_ieh0uu.jpg',
-  // display: 'https://res.cloudinary.com/dzj6d9qej/image/upload/v1700000000/avienna/display.jpg',
   colorGuide: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1776006303/specavienna_qwvkyj.jpg',
-  stoneCoated: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977112/avienna10_divffg.jpg',
-  blackStone: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977113/avienna5_s3bxdt.jpg',
-  brownStone: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977114/avienna9_jcrysu.jpg',
-  darkStone: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977113/avienna8_ieh0uu.jpg',
-  redPattern: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977112/avienna21_ad0zar.jpg'
+  terracotta:'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977114/avienna6_wdhkfs.jpg',
+  Maroon:'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977113/avienna12_um4fqt.jpg',
+  Black:'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977113/avienna5_s3bxdt.jpg',
+  CoffeeBrown:'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977111/avienna7_qltfv6.jpg',
+  BlackwithPatches:'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977112/avienna10_divffg.jpg',
+  TerracottawithPatches:'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977114/avienna9_jcrysu.jpg',
+  CoffeeBrownwithPatches:'https://res.cloudinary.com/daqtttdb0/image/upload/v1776152185/coffee_brown_with_patches_ifqatr.jpg',
+  redWave: 'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977111/avienna16_rfhqcw.jpg',
+  brown:'https://res.cloudinary.com/daqtttdb0/image/upload/v1774977112/avienna13_wetl0w.jpg'
 };
 
 // Color definitions based on the explanatory photo (avienna3.jpeg)
@@ -30,49 +24,55 @@ const COLOR_DEFINITIONS = [
     name: "Maroon",
     hex: "#8B2323",
     description: "Rich deep red tone with elegant finish",
-    image: IMAGES.redTile
+    image: IMAGES.Maroon
   },
   {
-    name: "Green",
-    hex: "#2F4F2F",
-    description: "Natural forest green for eco-friendly aesthetics",
-    image: IMAGES.stoneCoated
+    name: "RedWave",
+    hex: "#923838",
+    description: "Vibrant red with dynamic wave pattern",
+    image: IMAGES.redWave
   },
   {
     name: "Black",
     hex: "#1C1C1C",
     description: "Classic matte black for modern architecture",
-    image: IMAGES.blackStone
+    image: IMAGES.Black
   },
   {
     name: "Terracotta",
     hex: "#A0522D",
     description: "Warm earthy orange-brown traditional look",
-    image: IMAGES.brownStone
+    image: IMAGES.terracotta
   },
   {
     name: "Coffee Brown",
     hex: "#4A3728",
     description: "Rich chocolate brown with premium texture",
-    image: IMAGES.redTile
+    image: IMAGES.CoffeeBrown
   },
   {
     name: "Black with Patches",
     hex: "#2C2C2C",
     description: "Textured black with dimensional stone patches",
-    image: IMAGES.darkStone
+    image: IMAGES.BlackwithPatches
   },
   {
     name: "Terracotta with Patches",
     hex: "#B5651D",
     description: "Multi-toned terracotta with depth variation",
-    image: IMAGES.redPattern
+    image: IMAGES.TerracottawithPatches
   },
   {
     name: "Coffee Brown with Patches",
     hex: "#5C4033",
     description: "Layered brown tones with natural stone texture",
-    image: IMAGES.brownTile
+    image: IMAGES.CoffeeBrownwithPatches
+  },
+  {
+    name: "Brown",
+    hex: "#5C4033",
+    description: "Classic brown with a smooth finish",
+    image: IMAGES.brown
   }
 ];
 
@@ -126,8 +126,16 @@ const Navigation = ({ currentPage, setPage }) => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300`}>
-      <div className="max-w-7xl mx-auto px-6 py-4">
+<nav
+  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
+  ${
+    isOpen
+      ? 'bg-slate-900/95 backdrop-blur-md shadow-lg'
+      : scrolled
+      ? 'bg-slate-900/95 backdrop-blur-md shadow-lg'
+      : 'bg-transparent'
+  }`}
+>      <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg flex items-center justify-center">
@@ -135,7 +143,7 @@ const Navigation = ({ currentPage, setPage }) => {
             <img className="h-20 w-auto" src={IMAGES.logo} alt="Avienna Logo" />
           </div>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav */} 
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <button
@@ -161,19 +169,24 @@ const Navigation = ({ currentPage, setPage }) => {
         </div>
 
         {/* Mobile Nav */}
-        {isOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-slate-700 pt-4">
-            {navItems.map((item) => (
-              <button
-                key={item.page}
-                onClick={() => { setPage(item.page); setIsOpen(false); }}
-                className="block w-full text-left py-3 text-slate-300 hover:text-white font-medium"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-        )}
+<div
+  className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out
+  ${isOpen ? 'max-h-96 opacity-100 mt-4 pb-4 pt-4' : 'max-h-0 opacity-0'}
+  border-t border-white/20`}
+>
+  {navItems.map((item) => (
+    <button
+      key={item.page}
+      onClick={() => {
+        setPage(item.page);
+        setIsOpen(false);
+      }}
+      className="block w-full text-left py-3 text-white/80 hover:text-white font-medium transition-colors"
+    >
+      {item.name}
+    </button>
+  ))}
+</div>
       </div>
     </nav>
   );
@@ -196,34 +209,40 @@ const HomePage = ({ setPage }) => {
             delay={0}
           />
           <FloatingMabati 
-            src={IMAGES.blackWave} 
+            src={IMAGES.Black} 
             alt="Black wave roofing" 
             className="w-56 h-36 top-40 left-10 opacity-85"
             delay={2}
           />
           <FloatingMabati 
-            src={IMAGES.grayTile} 
+            src={IMAGES.CoffeeBrown} 
             alt="Gray tile roofing" 
             className="w-60 h-44 bottom-40 right-20 opacity-90"
             delay={4}
           />
           <FloatingMabati 
-            src={IMAGES.brownTile} 
+            src={IMAGES.brown} 
             alt="Brown tile roofing" 
             className="w-52 h-38 bottom-20 left-20 opacity-85"
             delay={1}
           />
           <FloatingMabati 
-            src={IMAGES.redStone} 
+            src={IMAGES.Maroon} 
             alt="Red stone coated" 
             className="w-48 h-32 top-60 right-1/3 opacity-80"
             delay={3}
           />
           <FloatingMabati 
-            src={IMAGES.grayWave} 
+            src={IMAGES.terracotta} 
             alt="Gray wave roofing" 
             className="w-56 h-40 bottom-60 left-1/3 opacity-85"
             delay={5}
+          />
+          <FloatingMabati 
+            src={IMAGES.TerracottawithPatches} 
+            alt="Brown tile roofing" 
+            className="w-60 h-44 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-90"
+            delay={6}
           />
         </div>
 
@@ -371,7 +390,7 @@ const ProductsPage = () => {
         <div className="mt-24">
           <h3 className="text-2xl font-bold text-white mb-8 text-center">Product Gallery</h3>
           <div className="grid md:grid-cols-3 gap-6">
-            {[IMAGES.blackStone, IMAGES.brownStone, IMAGES.redWave, IMAGES.grayWave, IMAGES.blackWave, IMAGES.redPattern].map((img, idx) => (
+            {[IMAGES.Black, IMAGES.CoffeeBrown, IMAGES.redWave, IMAGES.terracotta, IMAGES.TerracottawithPatches, IMAGES.Maroon, IMAGES.brown, IMAGES.CoffeeBrownwithPatches].map((img, idx) => (
               <div key={idx} className="aspect-square rounded-2xl overflow-hidden border border-slate-700 bg-slate-800">
                 <img src={img} alt={`Product ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
               </div>
@@ -464,31 +483,38 @@ const AboutPage = () => {
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen bg-slate-900 pt-44 pb-12">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16">
+<div className="min-h-screen bg-slate-900 pt-44 pb-12">
+  <div className="max-w-7xl mx-auto px-6">
 
-          {/* LEFT: Contact Info */}
-          <div className="space-y-8">
+    {/* ✅ Heading */}
+    <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
+      Get Quote via <span className="text-red-300">Email</span> / <span className="text-green-400">WhatsApp</span>
+    </h1>
+
+    <div className="grid lg:grid-cols-2 gap-16">
+
+      {/* LEFT: Contact Info */}
+      <div className="space-y-8">
+        <div className="flex items-start gap-4">
+          <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center">
+            <Phone className="text-orange-500" size={24} />
+          </div>
+          <div>
+            <h4 className="text-white font-semibold mb-1">Phone</h4>
+            <p className="text-slate-400">+254 797 825 403</p>
+            <p className="text-slate-400">+254 793 842 939</p>
+          </div>
+        </div>
+
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center">
-                <Phone className="text-orange-500" size={24} />
-              </div>
-              <div>
-                <h4 className="text-white font-semibold mb-1">Phone</h4>
-                <p className="text-slate-400">+254 700 000 000</p>
-                <p className="text-slate-400">+254 711 111 111</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center">
-                <Mail className="text-orange-500" size={24} />
+                <a href="mailto:Immaculatekiambi@gmail.com" target="_blank" rel="noopener noreferrer">
+                  <Mail className="text-orange-500" size={24} />
+                </a>
               </div>
               <div>
                 <h4 className="text-white font-semibold mb-1">Email</h4>
-                <p className="text-slate-400">info@avienna.co.ke</p>
-                <p className="text-slate-400">sales@avienna.co.ke</p>
+                <p className="text-slate-400">Immaculatekiambi@gmail.com</p>
               </div>
             </div>
 
@@ -506,12 +532,12 @@ const ContactPage = () => {
 
           {/* RIGHT: Social Icons */}
           <div className="flex items-center justify-center">
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-row gap-6">
               {[
-                { icon: FaWhatsapp, link: "https://wa.me/254700000000", color: "hover:text-green-500" },
-                { icon: FaFacebookF, link: "#", color: "hover:text-blue-500" },
-                { icon: FaInstagram, link: "#", color: "hover:text-pink-500" },
-                { icon: FaTwitter, link: "#", color: "hover:text-sky-400" },
+                { icon: FaWhatsapp, link: "https://wa.me/+254797825403", color: "hover:text-green-500" },
+                { icon: FaFacebookF, link: "https://web.facebook.com/profile.php?id=61586587001611", color: "hover:text-blue-500" },
+                { icon: FaInstagram, link: "https://www.instagram.com/aviennaroofingcompany08?igsh=ajJlb3d1Y2oyNDZq", color: "hover:text-pink-500" },
+                { icon: FaTiktok, link: "https://www.tiktok.com/@aviennaroofingcompany8?_r=1&_t=ZS-95WjbA4B2uI", color: "hover:text-pink-500" },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -537,7 +563,25 @@ const ContactPage = () => {
     </div>
   );
 };
+const FloatingWhatsApp = () => {
+  return (
+    <a
+      href="https://wa.me/254797825403"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-6 right-6 z-50 group"
+    >
+      <div className="relative flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg hover:scale-110 transition-all duration-300">
+        
+        {/* Pulse effect */}
+        <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-50 animate-ping"></span>
 
+        {/* Icon */}
+        <FaWhatsapp size={28} className="text-white relative z-10" />
+      </div>
+    </a>
+  );
+};
 
 const Footer = ({ setPage }) => (
   <footer className="bg-slate-950 border-t border-slate-800 py-12">
@@ -546,7 +590,7 @@ const Footer = ({ setPage }) => (
         <div className="col-span-2">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
+              <img src={IMAGES.logo} alt="Avienna Logo" />
             </div>
             <span className="text-2xl font-bold text-white">Avienna</span>
           </div>
@@ -569,8 +613,8 @@ const Footer = ({ setPage }) => (
         <div>
           <h4 className="text-white font-semibold mb-4">Contact</h4>
           <ul className="space-y-2 text-slate-400">
-            <li>+254 700 000 000</li>
-            <li>info@avienna.co.ke</li>
+            <li>+254 797 825 403</li>
+            <li>Immaculatekiambi@gmail.com</li>
             <li>Industrial Area, Nairobi</li>
           </ul>
         </div>
@@ -601,6 +645,7 @@ const App = () => {
       {page === 'contact' && <ContactPage />}
       
       <Footer setPage={setPage} />
+      <FloatingWhatsApp />
     </div>
   );
 };
