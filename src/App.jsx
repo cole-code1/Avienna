@@ -445,7 +445,7 @@ const AboutPage = () => {
               <img src={IMAGES.brown} alt="Brown" className="rounded-2xl shadow-xl mt-8" />
               <img src={IMAGES.terracotta} alt="Terracotta" className="rounded-2xl shadow-xl -mt-8" />
               <img src={IMAGES.Black} alt="Black" className="rounded-2xl shadow-xl" />
-              <img src={IMAGES.gray} alt="Gray" className="rounded-2xl shadow-xl" />
+              <img src={IMAGES.CoffeeBrownwithPatches} alt="Coffee Brown with Patches" className="rounded-2xl shadow-xl" />
               <img src={IMAGES.CoffeeBrown} alt="Coffee Brown" className="rounded-2xl shadow-xl mt-8" />
               <img src={IMAGES.TerracottawithPatches} alt="Terracotta with Patches" className="rounded-2xl shadow-xl" />
             </div>
