@@ -441,10 +441,13 @@ const AboutPage = () => {
           
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
-              <img src={IMAGES.redTile} alt="Red tiles" className="rounded-2xl shadow-xl" />
-              <img src={IMAGES.grayTile} alt="Gray tiles" className="rounded-2xl shadow-xl mt-8" />
-              <img src={IMAGES.brownTile} alt="Brown tiles" className="rounded-2xl shadow-xl -mt-8" />
-              <img src={IMAGES.blackWave} alt="Black wave" className="rounded-2xl shadow-xl" />
+              <img src={IMAGES.redWave} alt="Red wave" className="rounded-2xl shadow-xl" />
+              <img src={IMAGES.brown} alt="Brown" className="rounded-2xl shadow-xl mt-8" />
+              <img src={IMAGES.terracotta} alt="Terracotta" className="rounded-2xl shadow-xl -mt-8" />
+              <img src={IMAGES.Black} alt="Black" className="rounded-2xl shadow-xl" />
+              <img src={IMAGES.gray} alt="Gray" className="rounded-2xl shadow-xl" />
+              <img src={IMAGES.CoffeeBrown} alt="Coffee Brown" className="rounded-2xl shadow-xl mt-8" />
+              <img src={IMAGES.TerracottawithPatches} alt="Terracotta with Patches" className="rounded-2xl shadow-xl" />
             </div>
           </div>
         </div>
