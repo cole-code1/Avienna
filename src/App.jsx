@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, ChevronRight, Shield, Clock, Award, X, Menu, ArrowRight } from 'lucide-react';
-import { FaWhatsapp, FaFacebookF, FaInstagram, FaTwitter, FaTiktok } from 'react-icons/fa';
+import { FaWhatsapp, FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa';
 
 
 // Image paths from your cloudinary uploads
